@@ -19,15 +19,16 @@ app.get("/", function (req, res) {
 });
 
 app.get("/api/:date?", function (req, res) {
-  let reqDate = req.params.date;
+
+   let reqDate = req.params.date;
   let dateObj;
   if (reqDate === undefined) {
     dateObj = new Date();
   } else {
-    if (isNaN(date)) {
-      dateObj = new Date(date);
+    if (isNaN(reqDate)) {
+      dateObj = new Date(reqDate);
     } else {
-      dateObj = new Date(parseInt(date));
+      dateObj = new Date(parseInt(regDate));
     }
   }
   if (dateObj.toString() === "Invalid Date") {
@@ -35,6 +36,7 @@ app.get("/api/:date?", function (req, res) {
   } else {
     res.json({ unix: dateObj.getTime(), utc: dateObj.toUTCString() });
   }
+
 });
 
 
