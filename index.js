@@ -20,7 +20,7 @@ app.get("/", function (req, res) {
 
 app.get("/api/:date?", function (req, res) {
 
-   let reqDate = req.params.date;
+  let reqDate = req.params.date;
   let dateObj;
   if (reqDate === undefined) {
     dateObj = new Date();
@@ -28,7 +28,7 @@ app.get("/api/:date?", function (req, res) {
     if (isNaN(reqDate)) {
       dateObj = new Date(reqDate);
     } else {
-      dateObj = new Date(parseInt(regDate));
+      dateObj = new Date(parseInt(reqDate));
     }
   }
   if (dateObj.toString() === "Invalid Date") {
